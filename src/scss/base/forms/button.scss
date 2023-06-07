@@ -23,13 +23,6 @@
 		flex-direction: row-reverse;
 		gap: rem(12);
 	}
-
-	transition: all 0.3s ease;
-	@media (any-hover: hover) {
-		&:hover {
-			color: $additional-1;
-		}
-	}
 }
 
 .button-outlined {
@@ -54,12 +47,5 @@
 		justify-content: center;
 		flex-direction: row-reverse;
 		gap: rem(12);
-	}
-
-	transition: all 0.3s ease;
-	@media (any-hover: hover) {
-		&:hover {
-			color: $general-dark;
-		}
 	}
 }

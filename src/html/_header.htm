@@ -1,15 +1,86 @@
 <header class="header">
-	<div class="header__container">
-		<div class="header__menu menu">
-			<button type="button" class="menu__icon icon-menu"><span></span></button>
-			<nav class="menu__body">
-				<ul class="menu__list text text-menu">
-					<li class="menu__item"><a href="" class="menu__link">Home</a></li>
-					<li class="menu__item"><a href="" class="menu__link">Home</a></li>
-					<li class="menu__item"><a href="" class="menu__link">Home</a></li>
-					<li class="menu__item"><a href="" class="menu__link">Home</a></li>
-				</ul>
-			</nav>
+	<div class="header__wrapper">
+		<div class="header__container">
+			<div class="header__body">
+				<div class="header__logo logo-header">
+					<a class="logo-header__img" href="#">
+						<img src="@img/header/logo.svg" alt="logo-img" />
+					</a>
+				</div>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<ul class="menu__list text-menu">
+							<li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+							<li class="menu__item">
+								<div class="dropdown menu__dropdown">
+									<a
+										class="btn btn-secondary dropdown-toggle menu__link _icon-arrow _icon-arrow-down-small"
+										href="#"
+										role="button"
+										id="dropdownMenuLink"
+										data-bs-toggle="dropdown"
+										aria-expanded="false">
+										Speakers
+									</a>
+
+									<ul
+										class="dropdown-menu menu__dropdown-menu dropdown-menu-body"
+										aria-labelledby="dropdownMenuLink">
+										<li><a class="dropdown-item dropdown-menu-body__link" href="#">Action</a></li>
+										<li>
+											<a class="dropdown-item dropdown-menu-body__link" href="#"
+												>Another action</a
+											>
+										</li>
+										<li>
+											<a class="dropdown-item dropdown-menu-body__link" href="#"
+												>Something else here</a
+											>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="menu__item">
+								<div class="dropdown menu__dropdown">
+									<a
+										class="btn btn-secondary dropdown-toggle menu__link _icon-arrow-down-small"
+										href="#"
+										role="button"
+										id="dropdownMenuLink"
+										data-bs-toggle="dropdown"
+										aria-expanded="false">
+										Schedule
+									</a>
+
+									<ul
+										class="dropdown-menu menu__dropdown-menu dropdown-menu-body"
+										aria-labelledby="dropdownMenuLink">
+										<li><a class="dropdown-item dropdown-menu-body__link" href="#">Action</a></li>
+										<li>
+											<a class="dropdown-item dropdown-menu-body__link" href="#"
+												>Another action</a
+											>
+										</li>
+										<li>
+											<a class="dropdown-item dropdown-menu-body__link" href="#"
+												>Something else here</a
+											>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="menu__item"><a class="menu__link" href="#">Contact Us</a></li>
+						</ul>
+					</nav>
+					<button
+						type="button"
+						class="menu__icon icon-menu _icon-hamburger-menu"
+						data-da=".header__body, 767.98, last"></button>
+				</div>
+				<a class="header__button button-filled" href="#" data-da=".header__logo, 767.98, last">
+					<div class="button-filled__text">GET TICKETS</div>
+				</a>
+			</div>
 		</div>
 	</div>
 </header>

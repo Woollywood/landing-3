@@ -1,56 +1,214 @@
 //====================================================================================================
 
-//====================================================================================================
+// Импортируем стили текста
+@import "typography";
 
-//Burger
-/*
-.icon-menu {
-	display: none;
+.header {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+
+	&._header-scroll {
+		.header__wrapper {
+			background-color: rgba($general-blue, 0.6);
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: rgba($general-blue, 0.7);
+				}
+			}
+		}
+
+		.header__body {
+			@include adaptiveValue("min-height", 90, 80);
+		}
+	}
+
+	&__wrapper {
+		// Удалить
+		background-color: $general-blue;
+
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 0;
+		z-index: $z-index-header;
+
+		transition: background-color 0.3s ease;
+	}
+
+	&__container {
+	}
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		@include adaptiveValue("column-gap", 50, 32);
+		align-items: center;
+		padding: rem(10) 0;
+		@include adaptiveValue("min-height", 120, 90);
+
+		transition: min-height 0.3s ease;
+	}
+
+	&__logo {
+		flex: 0 0 rem(125);
+	}
+
+	&__menu {
+		flex: 1 1 auto;
+	}
+
+	&__button {
+		flex-shrink: 0;
+		background-color: $general-light;
+		color: $general-blue;
+	}
+}
+
+.logo-header {
+	display: flex;
+	align-items: center;
+
 	@media (max-width: $mobile) {
+		flex: 1 1 auto;
+		flex-wrap: wrap;
+		gap: rem(16);
+		justify-content: space-between;
+	}
+
+	&__img {
 		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		z-index: 5;
-		@media (any-hover: none) {
-			cursor: default;
-		}
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
-			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
-			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
-			}
+		width: rem(125);
+		height: rem(30);
+
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			display: block;
+			max-width: 100%;
 		}
 	}
 }
-*/
+
+.menu {
+	&__body {
+		@media (max-width: $mobile) {
+			position: absolute;
+			z-index: $z-index-header-menu;
+			top: 0;
+			right: 0;
+			width: 80%;
+			height: 100vh;
+			background-color: $general-blue;
+			justify-content: center;
+			transform: translateX(100%);
+
+			transition: all 0.3s ease;
+			.menu-show & {
+				transform: translateX(0);
+			}
+		}
+
+		display: flex;
+		align-items: center;
+		@media (min-width: $mobile) {
+			justify-content: flex-end;
+		}
+	}
+
+	&__list {
+		display: flex;
+		column-gap: rem(40);
+		row-gap: rem(16);
+
+		@media (min-width: $mobile) {
+			flex-wrap: wrap;
+			align-items: center;
+		}
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+		}
+	}
+
+	&__item {
+	}
+
+	&__link {
+		@extend .text-menu;
+
+		color: $general-light;
+		padding: 0;
+		background-color: transparent !important;
+		border: 0 !important;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: transparent;
+			}
+		}
+
+		&::after {
+			display: none;
+		}
+
+		display: inline-flex;
+		align-items: center;
+		flex-direction: row-reverse;
+		gap: rem(8);
+
+		&::before {
+			transition: all 0.3s ease;
+		}
+
+		&[aria-expanded*="true"] {
+			&::before {
+				transform: rotate(180deg);
+			}
+		}
+
+		@media (max-width: $mobile) {
+			@include adaptiveValue("font-size", 18, 24);
+		}
+	}
+
+	&__dropdown {
+	}
+
+	&__dropdown-menu {
+		transition: all 0.3s ease;
+	}
+
+	&__icon {
+	}
+}
+
+.dropdown-menu-body {
+	&__link {
+		color: $general-blue;
+		@extend .text-menu;
+	}
+}
+
+//====================================================================================================
+
+.icon-menu {
+	display: none;
+
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		z-index: $z-index-header-menu + 1;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+
+		font-size: rem(36);
+		&::before {
+			color: $general-light;
+		}
+	}
+}
