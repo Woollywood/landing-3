@@ -4,6 +4,7 @@ import { isMobile } from "./functions.js";
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
 
+
 window.onload = () => {
 
 	// Если расширение экрана при изменении их мобильной версии
@@ -21,6 +22,20 @@ window.onload = () => {
 		if (targetElement.closest('.menu__icon')) {
 			document.body.classList.toggle('menu-show');
 			document.body.classList.toggle('overflow-hidden');;
+		} else if (!targetElement.closest('.menu__body')) {
+			document.body.classList.remove('menu-show');
+			document.body.classList.remove('overflow-hidden');;
+		}
+
+		if (targetElement.hasAttribute('data-fancybox')) {
+			document.querySelector('.fancybox__container').style.maxWidth = 'none';
 		}
 	});
 };
+
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+Fancybox.bind("[data-fancybox]", {
+	// Your custom options
+  });
