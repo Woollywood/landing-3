@@ -30,6 +30,17 @@
 
 .logo-footer {
 	&__img {
+		width: rem(125);
+		height: rem(30);
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			display: block;
+			max-width: 100%;
+		}
 	}
 }
 
