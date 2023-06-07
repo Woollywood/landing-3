@@ -34,6 +34,13 @@ flsFunctions.isWebp();
 // flsFunctions.fullVHfix();
 /* Форматирование чисел*/
 // import './libs/wNumb.min.js';
+
+/*
+Настройка подключения плагина Jquery выполняется в файле js/files/jquery.js
+Документация плагина: https://jquery.com/
+*/
+// import $ from "jquery";
+
 /*
 Модуль "Спойлеры"
 Документация: https://template.fls.guru/template-docs/modul-spojlery.html
@@ -99,6 +106,8 @@ flsForms.formFieldsInit({
 // import './libs/select.js'
 /* Модуль работы с календарем*/
 // import './files/forms/datepicker.js'
+/* Модуль работы с text-area*/
+import './files/forms/text-field.js'
 /* (в работе) Модуль работы с масками.*/
 /*
 Подключение и настройка выполняется в файле js/files/forms/inputmask.js
@@ -138,7 +147,7 @@ flsForms.formFieldsInit({
 Настройка подключения плагина Bootstrap и обработка объектов плагина выполняется в файле js/files/bootstrap.js
 Документация плагина: https://getbootstrap.com/
 */
-// import "./files/bootstrap.js";
+import "./files/bootstrap.js";
 
 /*
 Настройка подключения плагина Mixitup и новых галлерей выполняется в файле js/files/mixitup.js

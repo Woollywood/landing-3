@@ -49,6 +49,7 @@
 		"gulp-zip": "latest",
 		"html-webpack-plugin": "latest",
 		"inputmask": "latest",
+		"jquery": "^3.7.0",
 		"js-datepicker": "latest",
 		"lightgallery": "latest",
 		"load-plugins": "latest",

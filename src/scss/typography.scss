@@ -1,0 +1,171 @@
+.text-primary-ff {
+	font-family: Montserrat;
+}
+
+.text-secondary-ff {
+	font-family: Raleway;
+}
+
+// ================================================================
+
+.text-h1-headline-bold {
+	@extend .text-primary-ff;
+	font-weight: 700;
+	font-size: rem(60);
+	line-height: math.div(73, 60);
+	color: $general-dark;
+}
+
+.text-h1-headline-regular {
+	@extend .text-primary-ff;
+	font-weight: 400;
+	font-size: rem(60);
+	line-height: math.div(73, 60);
+	color: $general-dark;
+}
+
+.text-subtitle-bold {
+	@extend .text-secondary-ff;
+	font-weight: 700;
+	font-size: rem(24);
+	line-height: math.div(38, 24);
+	color: $general-dark;
+}
+
+.text-subtitle-regular {
+	@extend .text-secondary-ff;
+	font-weight: 400;
+	font-size: rem(24);
+	line-height: math.div(38, 24);
+	color: $general-dark;
+}
+
+.text-h2-headline {
+	@extend .text-primary-ff;
+	font-weight: 700;
+	font-size: rem(34);
+	line-height: 130%;
+	color: $general-dark;
+}
+
+.text-h3-headline {
+	@extend .text-primary-ff;
+	font-weight: 800;
+	font-size: rem(24);
+	line-height: math.div(38, 24);
+	color: $general-dark;
+}
+
+.text-h4-headline {
+	@extend .text-primary-ff;
+	font-weight: 800;
+	font-size: rem(20);
+	line-height: math.div(28, 20);
+	color: $general-dark;
+}
+
+.text-h5-headline {
+	@extend .text-primary-ff;
+	font-weight: 700;
+	font-size: rem(16);
+	line-height: math.div(20, 16);
+	color: $general-dark;
+}
+
+.text-main-bold {
+	@extend .text-secondary-ff;
+	font-weight: 700;
+	font-size: rem(16);
+	line-height: math.div(24, 16);
+	color: $general-dark;
+}
+
+.text-main-regular {
+	@extend .text-secondary-ff;
+	font-weight: 400;
+	font-size: rem(16);
+	line-height: math.div(24, 16);
+	color: $general-dark;
+}
+
+.text-menu {
+	@extend .text-primary-ff;
+	font-weight: 600;
+	font-size: rem(14);
+	line-height: math.div(20, 14);
+	color: $general-dark;
+}
+
+.text-additional {
+	@extend .text-primary-ff;
+	font-weight: 400;
+	font-size: rem(12);
+	line-height: math.div(14, 12);
+	color: $general-dark;
+}
+
+.text-small-bold {
+	@extend .text-secondary-ff;
+	font-weight: 700;
+	font-size: rem(12);
+	line-height: math.div(18, 12);
+	color: $general-dark;
+}
+
+.text-small-regular {
+	@extend .text-secondary-ff;
+	font-weight: 400;
+	font-size: rem(12);
+	line-height: math.div(18, 12);
+	color: $general-dark;
+}
+
+// ====================================================================
+
+.text-headlines {
+	@extend .text-primary-ff;
+	font-weight: 700;
+	font-size: rem(40);
+	line-height: math.div(48, 40);
+	color: rgba($general-dark, 0.3);
+}
+
+.text-montserrat-bold {
+	@extend .text-primary-ff;
+	font-weight: 700;
+	font-size: rem(40);
+	line-height: math.div(49, 40);
+	color: $general-dark;
+}
+
+.text-montserrat-regular {
+	@extend .text-primary-ff;
+	font-weight: 400;
+	font-size: rem(40);
+	line-height: math.div(49, 40);
+	color: $general-dark;
+}
+
+.text-text {
+	@extend .text-secondary-ff;
+	font-weight: 700;
+	font-size: rem(40);
+	line-height: math.div(48, 40);
+	color: rgba($general-dark, 0.3);
+}
+
+.text-raleway-bold {
+	@extend .text-primary-ff;
+	font-weight: 700;
+	font-size: rem(40);
+	line-height: math.div(47, 40);
+	color: $general-dark;
+}
+
+.text-raleway-regular {
+	@extend .text-primary-ff;
+	font-weight: 400;
+	font-size: rem(40);
+	line-height: math.div(47, 40);
+	color: $general-dark;
+}

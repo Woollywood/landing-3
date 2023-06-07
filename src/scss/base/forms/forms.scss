@@ -16,9 +16,12 @@
 }
 //</FORM>
 
+// <TEXT-AREA>
+@import "text-field";
+
 // <BUTTONS>
 // Сниппет (HTML): btn
-// @import "button";
+@import "button";
 
 // <INPUTS>
 // Сниппет (HTML): inp

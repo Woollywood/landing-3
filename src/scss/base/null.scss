@@ -40,6 +40,10 @@ textarea {
 	font-size: inherit;
 	line-height: inherit;
 }
+input,
+textarea {
+	outline: none;
+}
 button {
 	cursor: pointer;
 	color: inherit;

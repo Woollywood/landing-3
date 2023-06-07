@@ -1,14 +1,65 @@
 //<BUTTONS (a.btn+tab)>
 // Сниппет (HTML): btn
 
-.button {
+.button-filled {
 	display: inline-flex;
-	padding: 0px 0px;
+	justify-content: center;
+	gap: rem(12);
+	align-items: center;
+	background-color: $general-blue;
+	border-radius: rem(8);
+	padding: rem(18) rem(34);
+
+	font-family: Montserrat;
+	font-weight: 700;
+	font-size: rem(16);
+	line-height: math.div(20, 16);
+	color: $general-light;
+
+	&__text {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row-reverse;
+		gap: rem(12);
+	}
+
+	transition: all 0.3s ease;
 	@media (any-hover: hover) {
 		&:hover {
+			color: $additional-1;
 		}
 	}
-	&._fw {
-		width: 100%;
+}
+
+.button-outlined {
+	display: inline-flex;
+	justify-content: center;
+	gap: rem(12);
+	align-items: center;
+	background-color: transparent;
+	border: rem(1) solid $general-blue;
+	border-radius: rem(8);
+	padding: rem(18) rem(34);
+
+	font-family: Montserrat;
+	font-weight: 700;
+	font-size: rem(16);
+	line-height: math.div(20, 16);
+	color: $general-blue;
+
+	&__text {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row-reverse;
+		gap: rem(12);
+	}
+
+	transition: all 0.3s ease;
+	@media (any-hover: hover) {
+		&:hover {
+			color: $general-dark;
+		}
 	}
 }

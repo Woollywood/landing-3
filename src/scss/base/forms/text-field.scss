@@ -1,0 +1,33 @@
+.text-field {
+	&._focus {
+		.text-field__label {
+			opacity: 1;
+			color: $general-blue;
+		}
+
+		.text-field__field {
+			border-bottom: rem(1) solid $general-blue;
+		}
+	}
+
+	&__label {
+		@extend .text-small-bold;
+		opacity: 0.7;
+
+		transition: all 0.3s ease;
+	}
+
+	&__field {
+		@extend .text-main-regular;
+		&::placeholder {
+			@extend .text-main-regular;
+		}
+
+		padding-bottom: rem(8);
+		border-bottom: rem(1) solid $additional-1;
+		resize: none;
+		overflow: hidden;
+
+		transition: all 0.3s ease;
+	}
+}
