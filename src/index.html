@@ -4,7 +4,43 @@
 	<body>
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
-			<main class="page"></main>
+			<main class="page">
+				<div class="page__main-block main-block">
+					<div class="main-block__container">
+						<div class="main-block__body">
+							<div class="main-block__content">
+								<h1 class="main-block__title text-center text-h1-headline-bold">
+									The Best experience of <span>music</span> in 2021
+								</h1>
+								<div class="main-block__text text-center text-subtitle-regular">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae ligula
+									placerat, eleifend ex non, vehicula libero. Suspendisse eget tellus lectus.
+								</div>
+								<div class="main-block__actions">
+									<a class="main-block__get-started button-filled" href="#">Get Started</a>
+									<a
+										class="main-block__watch-video _icon-play-empty text-h4-headline"
+										href="videos/main-block-video.mp4"
+										data-fancybox
+										data-caption="Single image"
+										>Watch Video
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="main-block__time-left time-left-main" data-da=".main-block__content, 991.98, last">
+						<div class="time-left-main__wrapper">
+							<div class="time-left-main__text">
+								<span>22d</span> <span>13h</span> <span>46m</span> <span>18s</span>
+							</div>
+						</div>
+					</div>
+					<div class="main-block__background-ibg">
+						<img src="@img/main-block/background.jpg" alt="background-img" />
+					</div>
+				</div>
+			</main>
 			@@include('html/_footer.htm',{})
 		</div>
 		@@include('html/_js.htm',{})

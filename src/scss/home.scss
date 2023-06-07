@@ -20,6 +20,130 @@
 			display: block;
 		}
 	}
+
+	&__main-block {
+	}
 }
 
 //====================================================================================================
+
+.main-block {
+	position: relative;
+
+	&__container {
+	}
+
+	&__body {
+		@include adaptiveValue("padding-top", 120, 90);
+		min-height: 100vh;
+
+		display: flex;
+		justify-content: center;
+	}
+
+	&__content {
+		@include adaptiveValue("padding-top", 105, 60);
+
+		max-width: rem(970);
+	}
+
+	&__title {
+		color: $general-light;
+
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 40, 30);
+		}
+
+		span {
+			color: $general-light-red;
+		}
+
+		@media (max-width: $mobileSmall) {
+			font-size: rem(36);
+		}
+	}
+
+	&__text {
+		color: $general-light;
+
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 40, 30);
+		}
+
+		@media (max-width: $mobileSmall) {
+			font-size: rem(20);
+		}
+	}
+
+	&__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(40);
+		justify-content: center;
+
+		&:not(:last-child) {
+			margin-bottom: rem(56);
+		}
+	}
+
+	&__get-started {
+		background-color: $general-red;
+		color: $general-light;
+	}
+
+	&__watch-video {
+		display: flex;
+		gap: rem(20);
+		align-items: center;
+		color: $general-light;
+
+		&::before {
+			font-size: rem(56);
+		}
+	}
+
+	&__time-left {
+		@media (min-width: $tablet) {
+			position: absolute;
+			bottom: rem(53);
+			left: 0;
+			width: 100%;
+		}
+	}
+
+	&__background-ibg {
+		position: absolute;
+		z-index: $z-index-background;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.time-left-main {
+	display: flex;
+
+	&__wrapper {
+		flex: 1 1 rem(1447);
+		box-sizing: content-box;
+		max-width: rem(1447);
+		margin: 0 auto;
+		padding: 0 rem(16);
+
+		display: flex;
+		justify-content: center;
+	}
+
+	&__text {
+		width: 100%;
+
+		display: flex;
+		gap: rem(16);
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		@include adaptiveValue("font-size", 144, 28, 0, 1447, 320);
+		color: rgba($general-light, 0.5);
+	}
+}
