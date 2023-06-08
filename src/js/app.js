@@ -141,7 +141,7 @@ import './files/forms/text-field.js'
 Документация плагина: https://swiperjs.com/
 Сниппет(HTML): swiper
 */
-//import "./files/sliders.js";
+import "./files/sliders.js";
 
 /*
 Настройка подключения плагина Bootstrap и обработка объектов плагина выполняется в файле js/files/bootstrap.js

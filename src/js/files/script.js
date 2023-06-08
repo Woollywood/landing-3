@@ -20,7 +20,8 @@ window.onload = () => {
 			document.body.classList.remove("menu-show");
 		}
 
-		correctInit();
+		resetCorrectContainers(getCorrectContainers());
+		correctContainers(getCorrectContainers());
 	});
 
 	// Клик по меню-бургеру
@@ -40,100 +41,156 @@ window.onload = () => {
 		}
 	});
 
+	// ==============================================================
+
+	function getCorrectContainers() {
+		return document.querySelectorAll("[data-correct-container]");
+	}
+
+	function correctContainers(containers) {
+		let loggsResult = [];
+		containers.forEach((container) => {
+			loggsResult.push(correctContainer(container));
+		});
+
+		correctLoggs(loggsResult);
+	}
+
+	function correctLoggs(loggsResult) {
+		const containerIndex = 0;
+		const dataContainerIndex = 1;
+
+		let index = 0;
+		loggsResult.forEach((log) => {
+			if (log[containerIndex]) {
+				console.log(`Контейнер №${++index} необходимо скорректировать по высоте`);
+				console.log(log[dataContainerIndex]);
+			}
+		});
+	}
+
+	function correctContainer(container) {
+		const cols = container.querySelectorAll("[data-correct-col]");
+		const cells = container.querySelectorAll("[data-correct-row]");
+
+		const colCount = cols.length;
+		const rowCount = cells.length / colCount;
+
+		// DOM элементы рядов
+		const rows = [];
+		for (let i = 0; i < rowCount; i++) {
+			const temp = [];
+			for (let j = 0; j < colCount; j++) {
+				temp.push(0);
+			}
+			rows.push(temp);
+		}
+
+		for (let i = 0; i < cols.length; i++) {
+			const curCol = cols[i].querySelectorAll("[data-correct-row]");
+			for (let j = 0; j < curCol.length; j++) {
+				rows[j][i] = curCol[j];
+			}
+		}
+
+		const dataHeightGeneral = [];
+
+		// Высота элементов каждого ряда
+		let dataHeightRows = [];
+		for (let i = 0; i < rowCount; i++) {
+			const temp = [];
+			for (let j = 0; j < colCount; j++) {
+				temp.push(0);
+			}
+			dataHeightRows.push(temp);
+		}
+
+		let dataHeightCols = [];
+
+		cells.forEach((row) => {
+			dataHeightGeneral.push(row.offsetHeight);
+		});
+
+		let index = 0;
+		let colData = [];
+		for (let i = 0; i <= dataHeightGeneral.length; i++) {
+			if (i > 0 && i % rowCount === 0) {
+				index = 0;
+				dataHeightCols.push(colData);
+				colData = [];
+
+				if (i === dataHeightGeneral.length) {
+					break;
+				}
+			}
+
+			colData[index++] = dataHeightGeneral[i];
+		}
+
+		// Записываем данный строк в массив
+		for (let i = 0; i < dataHeightCols.length; i++) {
+			for (let j = 0; j < dataHeightCols[i].length; j++) {
+				dataHeightRows[j][i] = dataHeightCols[i][j];
+			}
+		}
+
+		let rowsObjects = [];
+
+		// Записываем максимальные значения высоты каждого столбца
+		for (let i = 0; i < dataHeightRows.length; i++) {
+			let rowObject = {
+				isCorrect: false,
+				maxHeight: 0,
+			};
+			let maxVal = dataHeightRows[i][0];
+			for (let j = 1; j < dataHeightRows[i].length; j++) {
+				if (Math.max(dataHeightRows[i][j]) > maxVal) {
+					maxVal = Math.max(dataHeightRows[i][j]);
+					rowObject.isCorrect = true;
+				}
+			}
+			rowObject.maxHeight = maxVal;
+
+			rowsObjects.push(rowObject);
+		}
+
+		let isContainerCorrect = false;
+		for (let i = 0; i < rowsObjects.length; i++) {
+			if (rowsObjects[i].isCorrect) {
+				isContainerCorrect = true;
+
+				for (let j = 0; j < colCount; j++) {
+					rows[i][j].style.height = `${rowsObjects[i].maxHeight}px`;
+					// rows[i][j].style.display = "flex";
+					// rows[i][j].style.alignItems = "center";
+				}
+			}
+		}
+
+		return [isContainerCorrect, rowsObjects];
+	}
+
+	function resetCorrectContainers(containers) {
+		containers.forEach((container) => {
+			resetCorrectContainer(container);
+		});
+	}
+
+	function resetCorrectContainer(container) {
+		const cells = container.querySelectorAll("[data-correct-row]");
+		cells.forEach((cell) => {
+			cell.style.removeProperty("height");
+		});
+	}
+
+	// Корректировка высоты каждого ряда контейнеров
 	function correctInit() {
-		const correctItemsContainer = document.querySelectorAll("[data-correct-container]");
+		const correctItemsContainer = getCorrectContainers();
 
 		if (correctItemsContainer.length) {
 			console.log(`Найдено контейнеров для корректировки: ${correctItemsContainer.length}`);
 
-			correctItemsContainer.forEach((container) => {
-				if (container.style.display === "none") {
-					return null;
-				}
-
-				const cols = container.querySelectorAll("[data-correct-col]");
-				const cells = container.querySelectorAll("[data-correct-row]");
-
-				const colCount = cols.length;
-				const rowCount = cells.length / colCount;
-
-				const rows = [];
-				for (let i = 0; i < rowCount; i++) {
-					const temp = [];
-					for (let j = 0; j < colCount; j++) {
-						temp.push(0);
-					}
-					rows.push(temp);
-				}
-
-				for (let i = 0; i < cols.length; i++) {
-					const curCol = cols[i].querySelectorAll("[data-correct-row]");
-					for (let j = 0; j < curCol.length; j++) {
-						rows[j][i] = curCol[j];
-					}
-				}
-
-				const dataHeightGeneral = [];
-				let dataHeightRows = [];
-				for (let i = 0; i < rowCount; i++) {
-					const temp = [];
-					for (let j = 0; j < colCount; j++) {
-						temp.push(0);
-					}
-					dataHeightRows.push(temp);
-				}
-
-				let dataHeightCols = [colCount];
-
-				cells.forEach((row) => {
-					dataHeightGeneral.push(row.offsetHeight);
-				});
-
-				console.log(dataHeightGeneral);
-
-				// Записываем данные столбцов в массив
-				let index = 0;
-				let colData = [];
-				for (let i = 0; i <= dataHeightGeneral.length; i++) {
-					if (i > 0 && i % rowCount === 0) {
-						index = 0;
-						dataHeightCols.push(colData);
-						colData = [];
-
-						if (i === dataHeightGeneral.length) {
-							break;
-						}
-					}
-
-					colData[index++] = dataHeightGeneral[i];
-				}
-
-				// Записываем данный строк в массив
-				for (let i = 0; i < dataHeightCols.length; i++) {
-					for (let j = 0; j < dataHeightCols[i].length; j++) {
-						dataHeightRows[j][i - 1] = dataHeightCols[i][j];
-					}
-				}
-
-				let dataCols = [];
-				for (let i = 0; i < dataHeightRows.length; i++) {
-					let maxVal = dataHeightRows[i][0];
-					for (let j = 1; j < dataHeightRows[i].length; j++) {
-						if (Math.max(dataHeightRows[i][j]) > maxVal) {
-							maxVal = Math.max(dataHeightRows[i][j]);
-						}
-					}
-					dataCols.push(maxVal);
-				}
-
-				for (let i = 0; i < rows.length; i++) {
-					for (let j = 0; j < rows[i].length; j++) {
-						rows[i][j].style.minHheight = `${dataCols[i]}px`;
-						rows[i][j].style.display = "flex";
-						rows[i][j].style.alignItems = "center";
-					}
-				}
-			});
+			correctContainers(correctItemsContainer);
 		}
 	}
 
@@ -167,6 +224,9 @@ window.onload = () => {
 		);
 		categoryContainer.style.removeProperty("display");
 		button.classList.add("_active");
+
+		resetCorrectContainers(getCorrectContainers());
+		correctContainers(getCorrectContainers());
 
 		console.log("Контейнер показан");
 	}

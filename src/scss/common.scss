@@ -1,1 +1,48 @@
 //Заголовки, общие БЭМ блоки и т.д.
+.slider-dotts {
+	display: flex;
+	justify-content: center;
+	gap: rem(15);
+}
+
+.swiper-pagination-bullet {
+	width: rem(16);
+	height: rem(16);
+	background-color: $additional-1;
+	border-radius: 50%;
+
+	transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: $general-blue;
+}
+
+.slider-arrow-prev,
+.slider-arrow-next {
+	width: rem(56);
+	height: rem(56);
+	border-radius: 50%;
+	background-color: $general-light;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	pointer-events: auto;
+
+	&::before {
+		font-size: rem(24);
+	}
+
+	transition: all 0.3s ease;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $general-blue;
+
+			&::before {
+				color: $general-light;
+			}
+		}
+	}
+}
