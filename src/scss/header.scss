@@ -91,6 +91,10 @@
 }
 
 .menu {
+	@media (max-width: $mobile) {
+		display: none;
+	}
+
 	&__body {
 		@media (max-width: $mobile) {
 			position: absolute;

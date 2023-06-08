@@ -1,7 +1,7 @@
-import mixitup from 'mixitup';
+import mixitup from "mixitup";
 
-// var mixer = mixitup(".gallery-container", {
+// var mixer = mixitup(".event__content", {
 // 	load: {
-// 		filter: ".first-category-to-chose",
+// 		filter: ".category-day-1",
 // 	},
 // });
