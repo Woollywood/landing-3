@@ -1,4 +1,4 @@
-import mixitup from "mixitup";
+import mixitup from 'mixitup';
 
 // var mixer = mixitup(".event__content", {
 // 	load: {
